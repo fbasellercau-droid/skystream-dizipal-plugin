@@ -7,6 +7,7 @@
     "test": "npm run test:dizipal && npm run test:hdfilmcehennemi",
     "test:dizipal": "node tools/test-dizipal.mjs",
     "test:hdfilmcehennemi": "node tools/test-hdfilmcehennemi.mjs",
+    "shortcode:create": "node tools/create-shortcode.mjs",
     "deploy": "skystream deploy -u https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/"
   }
 }

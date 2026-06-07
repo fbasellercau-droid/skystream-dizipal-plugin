@@ -15,6 +15,23 @@ Add this URL in SkyStream:
 https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/repo.json
 ```
 
+## Shortcode
+
+SkyStream resolves shortcodes through Cuttly. The intended shortcode is:
+
+```text
+egici
+```
+
+For this to work, `https://cutt.ly/sky-egici` must redirect to the repository URL above.
+
+Create or refresh it with a Cuttly API key:
+
+```powershell
+$env:CUTTLY_API_KEY = "your-api-key"
+npm run shortcode:create
+```
+
 ## Local checks
 
 ```powershell
