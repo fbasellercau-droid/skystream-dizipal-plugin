@@ -1,0 +1,10 @@
+{
+  "name": "skystream-dizipal-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:dizipal": "node tools/test-dizipal.mjs",
+    "deploy": "skystream deploy -u https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/"
+  }
+}

@@ -1,0 +1,29 @@
+﻿{
+    "packageName":  "com.qwe.skystream.dizipal",
+    "name":  "DiziPal",
+    "version":  1,
+    "baseUrl":  "https://dizipal.im",
+    "description":  "DiziPal provider for SkyStream with Kraptor-style remote domain resolution.",
+    "authors":  [
+                    "qwe"
+                ],
+    "languages":  [
+                      "tr"
+                  ],
+    "categories":  [
+                       "Movies",
+                       "Series",
+                       "Anime"
+                   ],
+    "domains":  [
+                    {
+                        "name":  "DiziPal Auto",
+                        "url":  "https://dizipal.im"
+                    },
+                    {
+                        "name":  "DiziPal Orijinal",
+                        "url":  "https://dizipal1555.com"
+                    }
+                ],
+    "url":  "https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/dist/com.qwe.skystream.dizipal.sky"
+}
