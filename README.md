@@ -17,13 +17,17 @@ https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/ma
 
 ## Shortcode
 
-SkyStream resolves shortcodes through Cuttly. The intended shortcode is:
+SkyStream resolves shortcodes through Cuttly. If Cuttly is unavailable on the
+device or network, shortcodes will not work in the official SkyStream app.
+
+The intended shortcode is:
 
 ```text
 egici
 ```
 
 For this to work, `https://cutt.ly/sky-egici` must redirect to the repository URL above.
+Until that redirect exists and Cuttly is reachable, use the full repository URL.
 
 Create or refresh it with a Cuttly API key:
 
