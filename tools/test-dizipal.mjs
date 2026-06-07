@@ -44,9 +44,10 @@ await import(new URL("../dizipal/plugin.js", import.meta.url).href);
 const home = await call("getHome");
 const homeCategories = home.success ? Object.entries(home.data || {}).filter(([, items]) => items?.length) : [];
 const posterless = homeCategories.flatMap(([, items]) => items || []).filter((item) => !item.posterUrl || /no-thumbnail/i.test(item.posterUrl));
-console.log("home", home.success, homeCategories.length, homeCategories.map(([name]) => name).join(", "));
+const shortCategories = homeCategories.filter(([, items]) => items.length < 8);
+console.log("home", home.success, homeCategories.length, homeCategories.map(([name, items]) => `${name}:${items.length}`).join(", "));
 console.log("posters", posterless.length ? "bad" : "ok", posterless[0]?.posterUrl || "");
-if (!home.success || homeCategories.length < 4 || posterless.length) process.exit(1);
+if (!home.success || homeCategories.length < 4 || shortCategories.length || posterless.length) process.exit(1);
 
 const search = await call("search", "dutton");
 console.log("search", search.success, search.data?.length || 0, search.data?.[0]?.title, search.data?.[0]?.url);

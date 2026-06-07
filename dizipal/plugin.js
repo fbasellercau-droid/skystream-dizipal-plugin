@@ -103,19 +103,17 @@
 
   function parseCards(html, base, limit) {
     const cards = [];
-    const re = /<div[^>]+class=["'][^"']*post-item[^"']*["'][\s\S]*?<\/div>\s*<\/div>/gi;
+    const re = /<a\b(?=[^>]*\bhref=["']([^"']+)["'])(?=[^>]*\btitle=["']([^"']+)["'])[\s\S]*?<img\b[\s\S]*?<\/a>/gi;
     let match;
     while ((match = re.exec(html)) && cards.length < (limit || 36)) {
       const card = match[0];
-      const link = /<a[^>]+href=["']([^"']+)["'][^>]*title=["']([^"']+)["']/i.exec(card);
-      if (!link) continue;
       const poster = /<img[^>]+data-src=["']([^"']+)["'][^>]*wp-post-image/i.exec(card)
         || /<img[^>]+data-src=["']([^"']+)["']/i.exec(card)
         || /<img[^>]+src=["']([^"']+)["'][^>]*wp-post-image/i.exec(card)
         || /<img[^>]+src=["']([^"']+)["']/i.exec(card);
-      const url = absoluteUrl(base, link[1]);
-      const title = htmlDecode(link[2]).trim();
-      if (!title || /\/oyuncular\//i.test(url)) continue;
+      const url = absoluteUrl(base, match[1]);
+      const title = htmlDecode(match[2]).trim();
+      if (!title || /\/(?:oyuncular|yapim|dizi-kategori)\//i.test(url)) continue;
       cards.push(new MultimediaItem({
         title: title,
         url: url,

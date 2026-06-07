@@ -5,7 +5,11 @@ SkyStream plugin repository for Turkish sources.
 ## Plugins
 
 - DiziPal: movies, series, anime, search, details, episodes, and streams.
-- HDFilmCehennemi: movies, home lists, list-based search, details, and streams.
+- DiziBox: series, episodes, search, details, and OK.ru streams.
+
+HDFilmCehennemi is not in the active plugin list because the current stream
+hosts resolve to unusable endpoints during verification. UğurFilm is not in the
+active plugin list because the current public domains fail connection checks.
 
 ## Repository URL
 
@@ -46,12 +50,12 @@ Run one provider test:
 
 ```powershell
 npm run test:dizipal
-npm run test:hdfilmcehennemi
+npm run test:dizibox
 ```
 
 ## Layout
 
 - `dizipal/`: DiziPal plugin source.
-- `hdfilmcehennemi/`: HDFilmCehennemi plugin source.
+- `dizibox/`: DiziBox plugin source.
 - `dist/`: packaged `.sky` files and plugin list.
 - `domains.txt`: remote domain hints for sources that change domains.

@@ -1,0 +1,22 @@
+{
+  "packageName": "com.qwe.skystream.dizibox",
+  "name": "DiziBox",
+  "version": 1,
+  "baseUrl": "https://diziboxizle.com",
+  "description": "DiziBox series provider for SkyStream.",
+  "authors": [
+    "qwe"
+  ],
+  "languages": [
+    "tr"
+  ],
+  "categories": [
+    "Series"
+  ],
+  "domains": [
+    {
+      "name": "DiziBox",
+      "url": "https://diziboxizle.com"
+    }
+  ]
+}

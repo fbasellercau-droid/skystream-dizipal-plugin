@@ -29,11 +29,11 @@
     "url": "https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/dist/com.qwe.skystream.dizipal.sky"
   },
   {
-    "packageName": "com.qwe.skystream.hdfilmcehennemi",
-    "name": "HDFilmCehennemi",
+    "packageName": "com.qwe.skystream.dizibox",
+    "name": "DiziBox",
     "version": 1,
-    "baseUrl": "https://www.hdfilmcehennemi.nl",
-    "description": "HDFilmCehennemi movie provider for SkyStream.",
+    "baseUrl": "https://diziboxizle.com",
+    "description": "DiziBox series provider for SkyStream.",
     "authors": [
       "qwe"
     ],
@@ -41,14 +41,14 @@
       "tr"
     ],
     "categories": [
-      "Movies"
+      "Series"
     ],
     "domains": [
       {
-        "name": "HDFilmCehennemi",
-        "url": "https://www.hdfilmcehennemi.nl"
+        "name": "DiziBox",
+        "url": "https://diziboxizle.com"
       }
     ],
-    "url": "https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/dist/com.qwe.skystream.hdfilmcehennemi.sky"
+    "url": "https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/dist/com.qwe.skystream.dizibox.sky"
   }
 ]
