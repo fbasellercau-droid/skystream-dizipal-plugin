@@ -1,10 +1,12 @@
 {
-  "name": "skystream-dizipal-plugin",
+  "name": "skystream-tr-plugins",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
+    "test": "npm run test:dizipal && npm run test:hdfilmcehennemi",
     "test:dizipal": "node tools/test-dizipal.mjs",
+    "test:hdfilmcehennemi": "node tools/test-hdfilmcehennemi.mjs",
     "deploy": "skystream deploy -u https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/"
   }
 }

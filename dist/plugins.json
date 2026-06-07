@@ -4,7 +4,7 @@
     "name": "DiziPal",
     "version": 1,
     "baseUrl": "https://dizipal.im",
-    "description": "DiziPal provider for SkyStream with Kraptor-style remote domain resolution.",
+    "description": "DiziPal provider for SkyStream with remote domain resolution.",
     "authors": [
       "qwe"
     ],
@@ -27,5 +27,28 @@
       }
     ],
     "url": "https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/dist/com.qwe.skystream.dizipal.sky"
+  },
+  {
+    "packageName": "com.qwe.skystream.hdfilmcehennemi",
+    "name": "HDFilmCehennemi",
+    "version": 1,
+    "baseUrl": "https://www.hdfilmcehennemi.nl",
+    "description": "HDFilmCehennemi movie provider for SkyStream.",
+    "authors": [
+      "qwe"
+    ],
+    "languages": [
+      "tr"
+    ],
+    "categories": [
+      "Movies"
+    ],
+    "domains": [
+      {
+        "name": "HDFilmCehennemi",
+        "url": "https://www.hdfilmcehennemi.nl"
+      }
+    ],
+    "url": "https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/dist/com.qwe.skystream.hdfilmcehennemi.sky"
   }
 ]

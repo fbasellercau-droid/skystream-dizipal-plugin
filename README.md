@@ -1,25 +1,36 @@
-# SkyStream DiziPal Plugin
+# SkyStream TR Plugins
 
-Local SkyStream plugin repo for DiziPal.
+SkyStream plugin repository for Turkish sources.
 
-## Current plugins
+## Plugins
 
-- DiziPal
+- DiziPal: movies, series, anime, search, details, episodes, and streams.
+- HDFilmCehennemi: movies, home lists, list-based search, details, and streams.
 
-## Local checks
+## Repository URL
 
-```powershell
-npm run test:dizipal
-```
-
-Repository URL for SkyStream:
+Add this URL in SkyStream:
 
 ```text
 https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/repo.json
 ```
 
-After changing plugin files, rebuild/deploy with:
+## Local checks
 
 ```powershell
-npm run deploy
+npm test
 ```
+
+Run one provider test:
+
+```powershell
+npm run test:dizipal
+npm run test:hdfilmcehennemi
+```
+
+## Layout
+
+- `dizipal/`: DiziPal plugin source.
+- `hdfilmcehennemi/`: HDFilmCehennemi plugin source.
+- `dist/`: packaged `.sky` files and plugin list.
+- `domains.txt`: remote domain hints for sources that change domains.

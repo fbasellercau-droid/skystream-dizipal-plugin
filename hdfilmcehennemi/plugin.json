@@ -1,0 +1,22 @@
+{
+  "packageName": "com.qwe.skystream.hdfilmcehennemi",
+  "name": "HDFilmCehennemi",
+  "version": 1,
+  "baseUrl": "https://www.hdfilmcehennemi.nl",
+  "description": "HDFilmCehennemi movie provider for SkyStream.",
+  "authors": [
+    "qwe"
+  ],
+  "languages": [
+    "tr"
+  ],
+  "categories": [
+    "Movies"
+  ],
+  "domains": [
+    {
+      "name": "HDFilmCehennemi",
+      "url": "https://www.hdfilmcehennemi.nl"
+    }
+  ]
+}

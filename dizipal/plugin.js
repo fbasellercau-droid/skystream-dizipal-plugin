@@ -1,6 +1,6 @@
 (function () {
   const DEFAULT_BASE = "https://dizipal.im";
-  const DOMAIN_LIST_URL = "https://raw.githubusercontent.com/Kraptor123/domainListesi/refs/heads/main/eklenti_domainleri.txt";
+  const DOMAIN_LIST_URL = "https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/domains.txt";
   const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36";
 
   let cachedBaseUrl = null;
@@ -83,7 +83,7 @@
       const lines = body.split(/\r?\n/);
       const candidates = [];
       for (const line of lines) {
-        const match = /^\|(DiziPal|DiziPalOrijinal):\s*(https?:\/\/\S+)/i.exec(line.trim());
+        const match = /^(?:\|)?(DiziPal|DiziPalOrijinal)\s*[:=]\s*(https?:\/\/\S+)/i.exec(line.trim());
         if (match) candidates.push({ name: match[1], url: cleanBase(match[2]) });
       }
       const primary = candidates.find(function (x) { return x.name.toLowerCase() === "dizipal"; });
@@ -109,8 +109,10 @@
       const card = match[0];
       const link = /<a[^>]+href=["']([^"']+)["'][^>]*title=["']([^"']+)["']/i.exec(card);
       if (!link) continue;
-      const poster = /(?:data-src|src)=["']([^"']+)["'][^>]*class=["'][^"']*wp-post-image/i.exec(card)
-        || /<img[^>]+(?:data-src|src)=["']([^"']+)["']/i.exec(card);
+      const poster = /<img[^>]+data-src=["']([^"']+)["'][^>]*wp-post-image/i.exec(card)
+        || /<img[^>]+data-src=["']([^"']+)["']/i.exec(card)
+        || /<img[^>]+src=["']([^"']+)["'][^>]*wp-post-image/i.exec(card)
+        || /<img[^>]+src=["']([^"']+)["']/i.exec(card);
       const url = absoluteUrl(base, link[1]);
       const title = htmlDecode(link[2]).trim();
       if (!title || /\/oyuncular\//i.test(url)) continue;
@@ -176,7 +178,8 @@
       const url = absoluteUrl(base, link[1]);
       const title = htmlDecode(link[2]).trim();
       const nameMatch = /<h4[^>]*>\s*<a[^>]*>([\s\S]*?)<\/a>\s*<\/h4>/i.exec(card);
-      const poster = /<img[^>]+(?:data-src|src)=["']([^"']+)["']/i.exec(card);
+      const poster = /<img[^>]+data-src=["']([^"']+)["']/i.exec(card)
+        || /<img[^>]+src=["']([^"']+)["']/i.exec(card);
       const se = parseSeasonEpisode(title, url);
       const epName = stripTags(nameMatch ? nameMatch[1] : "") || title;
       const label = (se.season && se.episode ? "S" + String(se.season).padStart(2, "0") + "E" + String(se.episode).padStart(2, "0") + " - " : "") + epName;
@@ -236,9 +239,15 @@
       const base = await resolveBaseUrl();
       const data = {};
       const pages = [
-        ["Yeni Diziler", base + "/"],
+        ["Yeni Diziler", base + "/diziler/"],
         ["Yeni Filmler", base + "/filmler/"],
-        ["Son Bolumler", base + "/diziler/son-bolumler"]
+        ["Animeler", base + "/animeler/"],
+        ["Aksiyon Dizileri", base + "/dizi-kategori/aksiyon/"],
+        ["Bilim Kurgu Dizileri", base + "/dizi-kategori/bilim-kurgu/"],
+        ["Dram Dizileri", base + "/dizi-kategori/dram/"],
+        ["Komedi Dizileri", base + "/dizi-kategori/komedi/"],
+        ["Romantik Dizileri", base + "/dizi-kategori/romantik/"],
+        ["Savas Dizileri", base + "/dizi-kategori/savas/"]
       ];
       for (const page of pages) {
         try {

@@ -3,7 +3,7 @@
   "name": "DiziPal",
   "version": 1,
   "baseUrl": "https://dizipal.im",
-  "description": "DiziPal provider for SkyStream with Kraptor-style remote domain resolution.",
+  "description": "DiziPal provider for SkyStream with remote domain resolution.",
   "authors": [
     "qwe"
   ],

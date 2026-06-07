@@ -1,7 +1,7 @@
 {
-  "name": "SkyStream DiziPal Plugin",
-  "packageName": "com.qwe.skystream.dizipal",
-  "description": "DiziPal plugin for SkyStream.",
+  "name": "SkyStream TR Plugins",
+  "packageName": "com.qwe.skystream.trplugins",
+  "description": "Turkish source plugins for SkyStream.",
   "manifestVersion": 1,
   "pluginLists": [
     "https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/dist/plugins.json"
