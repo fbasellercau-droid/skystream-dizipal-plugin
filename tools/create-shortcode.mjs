@@ -12,8 +12,17 @@ endpoint.searchParams.set("key", API_KEY);
 endpoint.searchParams.set("short", TARGET_URL);
 endpoint.searchParams.set("name", ALIAS);
 
-const response = await fetch(endpoint);
-const text = await response.text();
+let response;
+let text;
+
+try {
+  response = await fetch(endpoint);
+  text = await response.text();
+} catch (error) {
+  console.error("Cuttly API could not be reached. Try again from a network where cutt.ly is accessible.");
+  console.error(error?.cause?.code || error?.message || String(error));
+  process.exit(1);
+}
 let payload;
 
 try {
