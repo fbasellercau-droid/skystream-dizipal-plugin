@@ -21,13 +21,21 @@ Bu adres doğrudan çalışan depo adresidir. Cuttly veya başka bir kısaltma s
 
 ## Kısa Kod
 
+Doğrulanmış kısa URL:
+
+```text
+https://cutt.ly/egici
+```
+
+Bu adres repo manifestine yönlenir ve SkyStream'e tam URL olarak eklenebilir.
+
 SkyStream resmi uygulamasında kısa kodlar Cuttly üzerinden çözülür. Uygulama `egici` girildiğinde şu adrese bakar:
 
 ```text
 https://cutt.ly/sky-egici
 ```
 
-Bu nedenle `egici` kısa kodunun çalışması için `https://cutt.ly/sky-egici` adresinin repo URL'sine yönlenmesi gerekir:
+Bu nedenle sadece `egici` yazılarak kullanılacak resmi shortcode için `https://cutt.ly/sky-egici` adresinin repo URL'sine yönlenmesi gerekir:
 
 ```text
 https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/repo.json
