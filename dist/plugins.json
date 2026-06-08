@@ -2,7 +2,7 @@
   {
     "packageName": "com.qwe.skystream.dizipal",
     "name": "DiziPal",
-    "version": 1,
+    "version": 2,
     "baseUrl": "https://dizipal.im",
     "description": "DiziPal provider for SkyStream with remote domain resolution.",
     "authors": [
@@ -31,7 +31,7 @@
   {
     "packageName": "com.qwe.skystream.dizibox",
     "name": "DiziBox",
-    "version": 1,
+    "version": 2,
     "baseUrl": "https://diziboxizle.com",
     "description": "DiziBox series provider for SkyStream.",
     "authors": [
@@ -50,5 +50,28 @@
       }
     ],
     "url": "https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/dist/com.qwe.skystream.dizibox.sky"
+  },
+  {
+    "packageName": "com.qwe.skystream.filmmodu",
+    "name": "FilmModu",
+    "version": 1,
+    "baseUrl": "https://filmmodu.cc",
+    "description": "FilmModu movie provider for SkyStream.",
+    "authors": [
+      "qwe"
+    ],
+    "languages": [
+      "tr"
+    ],
+    "categories": [
+      "Movies"
+    ],
+    "domains": [
+      {
+        "name": "FilmModu",
+        "url": "https://filmmodu.cc"
+      }
+    ],
+    "url": "https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/dist/com.qwe.skystream.filmmodu.sky"
   }
 ]

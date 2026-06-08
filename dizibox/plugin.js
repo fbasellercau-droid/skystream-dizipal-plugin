@@ -199,13 +199,6 @@
   function streamsFromOkMetadata(meta, iframeUrl) {
     const streams = [];
     const headers = { Referer: iframeUrl, "User-Agent": UA };
-    if (meta && meta.hlsManifestUrl) {
-      streams.push(new StreamResult({
-        url: meta.hlsManifestUrl,
-        source: "OK.ru HLS",
-        headers: headers
-      }));
-    }
     const videos = (meta && meta.videos || []).filter(function (video) {
       return video && video.url && !video.disallowed;
     }).sort(function (a, b) {
@@ -215,6 +208,13 @@
       streams.push(new StreamResult({
         url: video.url,
         source: "OK.ru " + String(video.name || "Video").toUpperCase(),
+        headers: headers
+      }));
+    }
+    if (meta && meta.hlsManifestUrl) {
+      streams.push(new StreamResult({
+        url: meta.hlsManifestUrl,
+        source: "OK.ru HLS",
         headers: headers
       }));
     }

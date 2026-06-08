@@ -231,6 +231,17 @@
     return subtitles;
   }
 
+  async function ensurePlayableHls(url, headers) {
+    const body = await request(url, Object.assign({
+      Referer: headers && headers.Referer,
+      Origin: headers && headers.Origin,
+      Accept: "application/vnd.apple.mpegurl,application/x-mpegURL,text/plain,*/*"
+    }, headers || {}));
+    if (!/^#EXTM3U\b/i.test(body.trim())) {
+      throw new Error("HLS manifest not available");
+    }
+  }
+
   async function getHome() {
     const cb = cbFrom(arguments);
     try {
@@ -338,17 +349,20 @@
       }
       if (!streamUrl) throw new Error("Stream URL not found");
 
+      const streamHeaders = {
+        Referer: iframeUrl,
+        Origin: originOf(iframeUrl),
+        "User-Agent": UA
+      };
+      await ensurePlayableHls(streamUrl, streamHeaders);
+
       cb({
         success: true,
         data: [
           new StreamResult({
             url: streamUrl,
             source: "DiziPal",
-            headers: {
-              Referer: iframeUrl,
-              Origin: originOf(iframeUrl),
-              "User-Agent": UA
-            },
+            headers: streamHeaders,
             subtitles: parseSubtitles(iframeHtml)
           })
         ]

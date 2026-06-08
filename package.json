@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "npm run test:dizipal && npm run test:dizibox",
+    "test": "npm run test:dizipal && npm run test:dizibox && npm run test:filmmodu",
     "test:dizipal": "node tools/test-dizipal.mjs",
     "test:dizibox": "node tools/test-dizibox.mjs",
+    "test:filmmodu": "node tools/test-filmmodu.mjs",
     "shortcode:create": "node tools/create-shortcode.mjs",
     "deploy": "skystream deploy -u https://raw.githubusercontent.com/fbasellercau-droid/skystream-dizipal-plugin/main/"
   }

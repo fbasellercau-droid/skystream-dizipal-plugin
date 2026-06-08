@@ -53,10 +53,16 @@ if (!details.success || !details.data?.episodes?.length) process.exit(1);
 
 const streams = await call("loadStreams", details.data.episodes[0].url);
 const hls = streams.data?.find((stream) => /m3u8/i.test(stream.url));
-console.log("streams", streams.success, streams.data?.length || 0, hls?.url?.slice(0, 60));
-if (!streams.success || !hls) process.exit(1);
+const direct = streams.data?.find((stream) => !/m3u8/i.test(stream.url));
+console.log("streams", streams.success, streams.data?.length || 0, streams.data?.[0]?.source, hls?.url?.slice(0, 60));
+if (!streams.success || !hls || !direct || streams.data[0] !== direct) process.exit(1);
 
 const manifest = await fetch(hls.url, { headers: hls.headers || {} });
 const manifestText = await manifest.text();
 console.log("manifest", manifest.status, manifestText.slice(0, 7));
 if (manifest.status >= 400 || !manifestText.startsWith("#EXTM3U")) process.exit(1);
+
+const directHead = await fetch(direct.url, { method: "HEAD", headers: direct.headers || {} });
+const directRange = await fetch(direct.url, { headers: Object.assign({ Range: "bytes=0-0" }, direct.headers || {}) });
+console.log("direct", directHead.status, directHead.headers.get("content-length"), directRange.status, directRange.headers.get("content-range"));
+if (directHead.status >= 400 || !directHead.headers.get("content-length") || directRange.status !== 206) process.exit(1);
